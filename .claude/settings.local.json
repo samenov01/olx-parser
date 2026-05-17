@@ -22,7 +22,8 @@
       "Bash(git commit *)",
       "Bash(git branch *)",
       "Bash(git remote *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(python -c \"from telegram_bot import build_app; print\\('OK'\\)\")"
     ]
   }
 }

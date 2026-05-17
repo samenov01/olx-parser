@@ -1,11 +1,17 @@
+import re
 import time
 import sys
 from datetime import datetime
 
-from config import OLX_URL, POLL_INTERVAL, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID
+from config import OLX_URL, POLL_INTERVAL, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID, PRICE_MIN, PRICE_MAX
 from db import init_db, is_seen, mark_seen
 from olx import fetch_listings, get_phone
 from telegram_bot import send_notification
+
+
+def _extract_price(price_str: str) -> int | None:
+    digits = re.sub(r"\D", "", price_str)
+    return int(digits) if digits else None
 
 
 def check_config():
@@ -48,6 +54,15 @@ def run_once():
             continue
 
         if is_seen(lid):
+            continue
+
+        # Фильтр по цене
+        price_num = _extract_price(listing.get("price", ""))
+        if PRICE_MIN and price_num and price_num < PRICE_MIN:
+            mark_seen(lid)
+            continue
+        if PRICE_MAX and price_num and price_num > PRICE_MAX:
+            mark_seen(lid)
             continue
 
         mark_seen(lid)

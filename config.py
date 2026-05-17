@@ -11,4 +11,8 @@ OLX_URL = "https://www.olx.kz/elektronika/telefony-i-aksesuary/mobilnye-telefony
 # Интервал опроса в секундах (по умолчанию 2 минуты)
 POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "120"))
 
+# Фильтр по цене (0 = отключён)
+PRICE_MIN = int(os.getenv("PRICE_MIN", "0"))
+PRICE_MAX = int(os.getenv("PRICE_MAX", "0"))
+
 DB_PATH = "seen_listings.db"

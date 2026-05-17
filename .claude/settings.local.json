@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install *)",
+      "Bash(New-Item -ItemType File -Path \"c:\\\\Users\\\\isera\\\\olx_parser\\\\.env\" -Force)",
+      "Bash(Out-Null)",
+      "Bash(Set-Content -Path \"c:\\\\Users\\\\isera\\\\olx_parser\\\\.env\" -Value \"TELEGRAM_TOKEN=8899224528:AAGwcxTtMKYHCH6mexEwG_EzQ-G_tysr4mg`nTELEGRAM_CHAT_ID=1212566286`nPOLL_INTERVAL=60\" -Encoding utf8)",
+      "Bash(python main.py)",
+      "Bash(jobs)",
+      "Bash(kill %1)",
+      "Read(//tmp/**)",
+      "Bash(python -c ' *)",
+      "Bash(pkill -f \"python main.py\")",
+      "Bash(kill 261)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(kill 183)",
+      "Bash(python -u main.py)",
+      "Bash(gh --version)",
+      "Bash(git --version)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "Bash(git push *)"
+    ]
+  }
+}

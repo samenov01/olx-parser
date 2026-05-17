@@ -1,0 +1,4 @@
+.env
+seen_listings.db
+__pycache__/
+*.pyc
